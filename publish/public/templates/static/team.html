@@ -1,0 +1,12 @@
+<div id="team">
+  <img data-bind="attr: { src: banner_src }" id="banner" />
+  <h2 data-bind="text: header"></h2>
+  
+  <div id="biographies_container" data-bind="foreach: members">
+	  <div class="biography">
+	    <img data-bind="attr: { src: headshot_src }" />
+	    <h3 data-bind="text: display_title"></h3>
+	    <p data-bind="text: bio"></p> 
+	  </div>
+  </div>
+</div>

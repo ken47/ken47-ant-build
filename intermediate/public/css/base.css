@@ -1,0 +1,596 @@
+/* h5bp-import: libs/normalize.css */
+/* h5bp-import: libs/jquery.jgrowl.css */
+/* h5bp-import: libs/bootstrap.css */
+/* line 7, ../../sass/base.scss */
+a:hover {
+  text-decoration: none;
+}
+
+/* line 11, ../../sass/base.scss */
+.relative {
+  position: relative !important;
+}
+
+/* line 15, ../../sass/base.scss */
+.absolute {
+  position: absolute !important;
+}
+
+/* line 19, ../../sass/base.scss */
+.left {
+  float: left !important;
+}
+
+/* line 23, ../../sass/base.scss */
+.right {
+  float: right !important;
+}
+
+/* line 27, ../../sass/base.scss */
+.clear {
+  clear: both !important;
+}
+
+/* line 31, ../../sass/base.scss */
+.absolute-filler {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+/* line 37, ../../sass/base.scss */
+.input-container {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 1px 3px 0 #a0a0a0;
+  -moz-box-shadow: inset 0 1px 3px 0 #a0a0a0;
+  box-shadow: inset 0 1px 3px 0 #a0a0a0;
+  border: 1px solid #444;
+  background: white;
+  width: 200px;
+  height: 40px;
+}
+/* line 45, ../../sass/base.scss */
+.input-container input[type=text] {
+  background: 0;
+  border: 0;
+  width: 180px;
+  padding: 12px 10px 8px;
+  font-weight: bold;
+}
+/* line 52, ../../sass/base.scss */
+.input-container input[type=text]:active, .input-container input[type=text]:focus {
+  outline: 0;
+  outline-style: none;
+  outline-width: 0;
+  -moz-outline-width: 0;
+}
+
+/* line 61, ../../sass/base.scss */
+.form-element {
+  height: 40px;
+  font-weight: bold;
+  color: white;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 1px 3px 0 #a0a0a0;
+  -moz-box-shadow: inset 0 1px 3px 0 #a0a0a0;
+  box-shadow: inset 0 1px 3px 0 #a0a0a0;
+  border: 1px solid #444;
+  text-align: center;
+  line-height: 40px;
+  text-shadow: 0 -1px 0 #a0a0a0;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #6aa5cf), color-stop(100%, #5791bb));
+  background-image: -webkit-linear-gradient(#6aa5cf, #5791bb);
+  background-image: -moz-linear-gradient(#6aa5cf, #5791bb);
+  background-image: -o-linear-gradient(#6aa5cf, #5791bb);
+  background-image: linear-gradient(#6aa5cf, #5791bb);
+}
+
+/* line 74, ../../sass/base.scss */
+body {
+  width: 100%;
+  min-width: 960px;
+  font-family: helvetica,arial;
+}
+/* line 80, ../../sass/base.scss */
+body .mid-container {
+  width: 960px;
+  margin: auto;
+}
+/* line 84, ../../sass/base.scss */
+body .col-set {
+  float: left;
+  width: 960px;
+  clear: both;
+}
+/* line 90, ../../sass/base.scss */
+body .col-set .col-1 {
+  float: left;
+  width: 80px;
+}
+/* line 90, ../../sass/base.scss */
+body .col-set .col-2 {
+  float: left;
+  width: 160px;
+}
+/* line 90, ../../sass/base.scss */
+body .col-set .col-3 {
+  float: left;
+  width: 240px;
+}
+/* line 90, ../../sass/base.scss */
+body .col-set .col-4 {
+  float: left;
+  width: 320px;
+}
+/* line 90, ../../sass/base.scss */
+body .col-set .col-5 {
+  float: left;
+  width: 400px;
+}
+/* line 90, ../../sass/base.scss */
+body .col-set .col-6 {
+  float: left;
+  width: 480px;
+}
+/* line 90, ../../sass/base.scss */
+body .col-set .col-7 {
+  float: left;
+  width: 560px;
+}
+/* line 90, ../../sass/base.scss */
+body .col-set .col-8 {
+  float: left;
+  width: 640px;
+}
+/* line 90, ../../sass/base.scss */
+body .col-set .col-9 {
+  float: left;
+  width: 720px;
+}
+/* line 90, ../../sass/base.scss */
+body .col-set .col-10 {
+  float: left;
+  width: 800px;
+}
+/* line 90, ../../sass/base.scss */
+body .col-set .col-11 {
+  float: left;
+  width: 880px;
+}
+/* line 90, ../../sass/base.scss */
+body .col-set .col-12 {
+  float: left;
+  width: 960px;
+}
+
+/* line 2, ../../sass/static/_splash.scss */
+#static-splash img#dynamic-background {
+  position: absolute;
+  width: 100%;
+  min-height: 1170px;
+  min-width: 960px;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+/* line 12, ../../sass/static/_splash.scss */
+#static-splash #main {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  min-height: 1170px;
+  position: relative;
+}
+/* line 19, ../../sass/static/_splash.scss */
+#static-splash #main header {
+  width: 100%;
+  height: 200px;
+}
+/* line 23, ../../sass/static/_splash.scss */
+#static-splash #main header div#first-bar {
+  width: 100%;
+  height: 105px;
+  background: url(../../img/controllers/static/dark-splash/top-first.png);
+}
+/* line 28, ../../sass/static/_splash.scss */
+#static-splash #main header div#first-bar div#logo {
+  width: 206px;
+  height: 94px;
+  background: url(../../img/controllers/static/dark-splash/logo.png);
+  position: absolute;
+  left: 50%;
+  top: 5px;
+  margin-left: -206px;
+}
+/* line 38, ../../sass/static/_splash.scss */
+#static-splash #main header div#first-bar div#get-the-app {
+  cursor: pointer;
+  width: 193px;
+  height: 68px;
+  background: url(../../img/controllers/static/dark-splash/get-the-app.png);
+  position: absolute;
+  top: 18px;
+  left: 50%;
+}
+/* line 48, ../../sass/static/_splash.scss */
+#static-splash #main header div#first-bar div#popup {
+  display: none;
+  width: 366px;
+  height: 347px;
+  left: 50%;
+  top: 85px;
+  margin-left: -80px;
+  position: absolute;
+  background: url(../../img/controllers/static/dark-splash/popup.png);
+  z-index: -1;
+}
+/* line 59, ../../sass/static/_splash.scss */
+#static-splash #main header div#first-bar div#popup div#close-popup {
+  position: absolute;
+  width: 30px;
+  top: 60px;
+  right: 30px;
+  font-weight: bold;
+  font-size: 20px;
+  color: bot workinglack;
+  cursor: pointer;
+}
+/* line 69, ../../sass/static/_splash.scss */
+#static-splash #main header div#first-bar div#popup div#close-popup:hover {
+  color: white;
+}
+/* line 74, ../../sass/static/_splash.scss */
+#static-splash #main header div#first-bar div#popup div.input-container {
+  float: left;
+  margin-top: 170px;
+  margin-left: 43px;
+  width: 280px;
+}
+/* line 80, ../../sass/static/_splash.scss */
+#static-splash #main header div#first-bar div#popup div.input-container input {
+  width: 260px;
+}
+/* line 85, ../../sass/static/_splash.scss */
+#static-splash #main header div#first-bar div#popup .error {
+  position: absolute;
+  top: 110px;
+  left: 50%;
+  margin-left: -141px;
+  font-weigt: normal;
+  background: #2B3856;
+  width: 282px;
+}
+/* line 95, ../../sass/static/_splash.scss */
+#static-splash #main header div#first-bar div#popup .submit-button {
+  float: left;
+  margin-top: 20px;
+  margin-left: 43px;
+  width: 282px;
+}
+/* line 104, ../../sass/static/_splash.scss */
+#static-splash #main header div#second-bar {
+  width: 100%;
+  height: 88px;
+  background: url(../../img/controllers/static/dark-splash/top-second.png);
+  position: relative;
+}
+/* line 110, ../../sass/static/_splash.scss */
+#static-splash #main header div#second-bar img {
+  display: none;
+  margin: auto;
+  width: 859px;
+  margin-left: -430px;
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+}
+/* line 122, ../../sass/static/_splash.scss */
+#static-splash #main div.mid-container {
+  height: 685px;
+}
+/* line 125, ../../sass/static/_splash.scss */
+#static-splash #main div.mid-container #iphone {
+  position: absolute;
+  z-index: 10000;
+  left: 50%;
+  top: 38px;
+  margin-left: -195px;
+  height: 747px;
+  width: 391px;
+  background: url(../../img/controllers/static/dark-splash/iPhone.png);
+}
+/* line 136, ../../sass/static/_splash.scss */
+#static-splash #main div.mid-container div#parabolasel-container {
+  position: absolute;
+  top: 0;
+  left: 2px;
+  margin-top: -100px;
+  width: 100%;
+  height: 750px;
+  overflow: visible;
+  z-index: 1000;
+}
+/* line 146, ../../sass/static/_splash.scss */
+#static-splash #main div.mid-container div#parabolasel-container div#iphone-black-bg {
+  position: absolute;
+  top: 265px;
+  left: 50%;
+  margin-left: -160px;
+  height: 485px;
+  width: 320px;
+  background-color: black;
+  z-index: 999;
+}
+/* line 156, ../../sass/static/_splash.scss */
+#static-splash #main div.mid-container div#parabolasel-container img.parabolasel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: none;
+  width: 322px;
+  height: 484px;
+}
+/* line 167, ../../sass/static/_splash.scss */
+#static-splash #main footer {
+  height: 190px;
+}
+/* line 170, ../../sass/static/_splash.scss */
+#static-splash #main footer div#first-bar {
+  z-index: 10000;
+  position: absolute;
+  background: url(../../img/controllers/static/dark-splash/bot-first.png);
+  height: 100px;
+  width: 100%;
+  bottom: 90px;
+  left: 0;
+  -webkit-box-shadow: 0px 0px 5px #333333;
+  -moz-box-shadow: 0px 0px 5px #333333;
+  box-shadow: 0px 0px 5px #333333;
+}
+/* line 180, ../../sass/static/_splash.scss */
+#static-splash #main footer div#first-bar div#first-bar-content {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+/* line 185, ../../sass/static/_splash.scss */
+#static-splash #main footer div#first-bar div#first-bar-content div#project-lifelog-badge {
+  width: 450px;
+  height: 70px;
+  background: url(../../img/controllers/static/dark-splash/project-lifelog.png);
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+/* line 196, ../../sass/static/_splash.scss */
+#static-splash #main footer div#second-bar {
+  z-index: 10000;
+  height: 90px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  background: url(../../img/controllers/static/dark-splash/bot-second.png);
+}
+/* line 204, ../../sass/static/_splash.scss */
+#static-splash #main footer div#second-bar div.mid-container {
+  height: 90px;
+  position: relative;
+}
+/* line 209, ../../sass/static/_splash.scss */
+#static-splash #main footer div#second-bar div.mid-container img#footer-link-1 {
+  position: absolute;
+  left: 100px;
+  bottom: 32px;
+}
+/* line 209, ../../sass/static/_splash.scss */
+#static-splash #main footer div#second-bar div.mid-container img#footer-link-2 {
+  position: absolute;
+  left: 353.333px;
+  bottom: 32px;
+}
+/* line 209, ../../sass/static/_splash.scss */
+#static-splash #main footer div#second-bar div.mid-container img#footer-link-3 {
+  position: absolute;
+  left: 606.667px;
+  bottom: 32px;
+}
+/* line 209, ../../sass/static/_splash.scss */
+#static-splash #main footer div#second-bar div.mid-container img#footer-link-4 {
+  position: absolute;
+  left: 860px;
+  bottom: 32px;
+}
+
+/* line 3, ../../sass/static/_main.scss */
+body#static {
+  background: url(../../img/layouts/static/body-bg.png);
+}
+/* line 6, ../../sass/static/_main.scss */
+body#static header#top-fixed-navbar {
+  width: 100%;
+  height: 63px;
+  background: url(../../img/layouts/static/topbar-bg.png);
+  -webkit-box-shadow: 0 0 2px 3px #666666;
+  -moz-box-shadow: 0 0 2px 3px #666666;
+  box-shadow: 0 0 2px 3px #666666;
+  position: relative;
+  z-index: 1000;
+}
+/* line 14, ../../sass/static/_main.scss */
+body#static header#top-fixed-navbar div#lyfe-logo {
+  width: 94px;
+  height: 46px;
+  margin-top: 12px;
+  background: url(../../img/layouts/static/toplyfe.png);
+  float: left;
+}
+/* line 23, ../../sass/static/_main.scss */
+body#static nav#sidebar {
+  float: left;
+  width: 240px;
+}
+/* line 26, ../../sass/static/_main.scss */
+body#static nav#sidebar a {
+  background: url(../../img/layouts/static/unselected-nav.png);
+  position: relative;
+  text-decoration: none;
+  font-size: 17px;
+  height: 48px;
+  line-height: 48px;
+  display: block;
+  color: #545454;
+}
+/* line 35, ../../sass/static/_main.scss */
+body#static nav#sidebar a span.text {
+  position: relative;
+  top: 0;
+  left: 15px;
+  width: 240px;
+  text-shadow: 1px 1px 0px #cdcdcd;
+}
+/* line 42, ../../sass/static/_main.scss */
+body#static nav#sidebar a.selected, body#static nav#sidebar a:hover {
+  background: url(../../img/layouts/static/selected-nav.png);
+  width: 239px;
+  margin-left: 1px;
+}
+/* line 46, ../../sass/static/_main.scss */
+body#static nav#sidebar a.selected span.text, body#static nav#sidebar a:hover span.text {
+  left: 14px;
+}
+/* line 51, ../../sass/static/_main.scss */
+body#static nav#sidebar div#top-border {
+  background: url(../../img/layouts/static/sidebar-horiz-bg.png);
+  border-bottom: 1px solid black;
+  height: 30px;
+  width: 240px;
+}
+/* line 57, ../../sass/static/_main.scss */
+body#static nav#sidebar div#bot-border {
+  background: url(../../img/layouts/static/sidebar-horiz-bg.png);
+  border-top: 1px solid white;
+  height: 450px;
+  width: 240px;
+  -webkit-box-shadow: inset 0 -1px 2px 2px #888888;
+  -moz-box-shadow: inset 0 -1px 2px 2px #888888;
+  box-shadow: inset 0 -1px 2px 2px #888888;
+}
+/* line 65, ../../sass/static/_main.scss */
+body#static div#main {
+  color: #003065;
+  float: left;
+  width: 100%;
+  min-height: 750px;
+  background: #f1f1f1;
+  position: static;
+  -webkit-box-shadow: 1px 2px 2px 1px #b8b8b8;
+  -moz-box-shadow: 1px 2px 2px 1px #b8b8b8;
+  box-shadow: 1px 2px 2px 1px #b8b8b8;
+}
+/* line 74, ../../sass/static/_main.scss */
+body#static div#main img#banner {
+  width: 100%;
+  float: left;
+  position: relative;
+  z-index: 1000;
+}
+/* line 81, ../../sass/static/_main.scss */
+body#static div#main h1 {
+  float: left;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 30px 0 0 30px;
+}
+/* line 88, ../../sass/static/_main.scss */
+body#static div#main h2 {
+  float: left;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: underline;
+  margin: 30px 0 5px 30px;
+}
+/* line 97, ../../sass/static/_main.scss */
+body#static div#main div#about .text-section {
+  float: left;
+  padding-bottom: 30px;
+}
+/* line 100, ../../sass/static/_main.scss */
+body#static div#main div#about .text-section p {
+  font-size: 12px;
+  float: left;
+  margin: 0;
+  margin-left: 30px;
+  width: 660px;
+  line-height: 18px;
+}
+/* line 112, ../../sass/static/_main.scss */
+body#static div#main div#team div#biographies_container {
+  clear: both;
+}
+/* line 115, ../../sass/static/_main.scss */
+body#static div#main div#team div#biographies_container div.biography {
+  float: left;
+  background: url(../../img/controllers/static/team/team-bio-box-bg.png);
+  height: 148px;
+  width: 660px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+  -webkit-box-shadow: 0 1px 2px 1px #b8b8b8;
+  -moz-box-shadow: 0 1px 2px 1px #b8b8b8;
+  box-shadow: 0 1px 2px 1px #b8b8b8;
+}
+/* line 124, ../../sass/static/_main.scss */
+body#static div#main div#team div#biographies_container div.biography img {
+  width: 94px;
+  height: 108px;
+  float: left;
+  margin: 20px;
+  -webkit-box-shadow: 0 2px 2px 1px #b8b8b8;
+  -moz-box-shadow: 0 2px 2px 1px #b8b8b8;
+  box-shadow: 0 2px 2px 1px #b8b8b8;
+}
+/* line 132, ../../sass/static/_main.scss */
+body#static div#main div#team div#biographies_container div.biography h3 {
+  float: left;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 25px 0 8px;
+}
+/* line 139, ../../sass/static/_main.scss */
+body#static div#main div#team div#biographies_container div.biography p {
+  float: left;
+  font-size: 12px;
+  line-height: 18px;
+  width: 506px;
+}
+/* line 150, ../../sass/static/_main.scss */
+body#static footer {
+  font-size: 10px;
+  text-align: right;
+  margin-bottom: 100px;
+  float: left;
+  display: block;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+}
+/* line 160, ../../sass/static/_main.scss */
+body#static footer span.copyright {
+  color: #003662;
+  font-weight: bold;
+}
+/* line 165, ../../sass/static/_main.scss */
+body#static footer a {
+  margin-left: 6px;
+  color: #8e8e8e;
+  text-shadow: 0px 1px 0px white;
+}

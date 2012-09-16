@@ -1,0 +1,11 @@
+<div id="about">
+  <img data-bind="attr: { src: banner_src }" id="banner">
+  
+  <h1 data-bind="text: main_header"></h1>
+  
+  <div class="text-section" data-bind="foreach: text_sections">
+    <h2 data-bind="text: header"></h2>
+    <p><strong>Problem: </strong><span data-bind="text: problem"></span></p>
+    <p><strong>Solution: </strong><span data-bind="text: solution"></span></p> 
+  </div>
+</div>

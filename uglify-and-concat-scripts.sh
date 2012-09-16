@@ -67,8 +67,6 @@ class UglifyHelper
           end
         end
 
-        puts text[next_console_log..next_closing_paren]
-
         text.insert (next_closing_paren +1 ), "*/"
         text.insert (next_console_log), "/*"
         next_console_log += 3 
@@ -80,7 +78,6 @@ class UglifyHelper
 =end
 
   def get_filepath(filepath)
-    puts filepath
     joint = '/'
     filepath.split('/').to_enum.with_index(0) do |component, index|
       if component == '.'

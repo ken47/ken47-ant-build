@@ -417,11 +417,11 @@
                 <!--    <else> -->
                       <mkdir dir="${dir.intermediate}"/>
                       <copy todir="${dir.intermediate}" includeEmptyDirs="true">
-                          <dirset dir="${dir.source}/" excludes="${file.default.exclude}, ${file.exclude}"/>
+                          <dirset dir="${dir.source}/" excludes="${file.default.exclude}"/>
                       </copy>
                       <mkdir dir="${dir.publish}"/>
                       <copy todir="${dir.publish}" includeEmptyDirs="true">
-                          <dirset dir="${dir.source}/" excludes="${file.default.exclude}, ${file.exclude}" includes="*"/>
+                          <dirset dir="${dir.source}/" excludes="${file.default.exclude}" includes="*"/>
                       </copy>
                 <!--
                     </else>
@@ -435,23 +435,19 @@
         
         <echo message="Copying over new files..."/>
         <copy todir="./${dir.publish}" includeEmptyDirs="false">
-            <fileset dir="${dir.source}/" excludes="${file.default.exclude}, ${file.exclude}">
+            <fileset dir="${dir.source}/" defaultexcludes="no" excludes="${file.default.exclude}">
                 <!-- exclude files that are superseded by optimized versions with different names -->
                 <!-- this is not strictly necessary, but it avoids putting unreferenced files into your server -->
                 <exclude name="${dir.js}/**/*.js"/>
                 <exclude name="${dir.js.modules}"/>
                 <exclude name="${dir.css}/**/*.css"/>
             </fileset>
+            <fileset dir="${dir.source}/" defaultexcludes="no" excludes="${file.default.exclude}">
+                <include name="${dir.js}/**/modernizr**"/>
+            </fileset>
         </copy>
         <echo message="${file.default.js.bypass}"/>
-        <copy todir="./${dir.publish}" includeEmptyDirs="false">
-          <fileset dir="${dir.source}/" includes="${file.default.js.bypass}">
-            <!--
-            <include name="**/modernizr*"/>
-            <include name="**/text.js"/>
-            -->
-          </fileset>
-        </copy>
+        <echo message="${file.default.exclude}"/>
         <echo message="A copy of all new non-dev files are now in: ./${dir.publish}."/>
     </target>
     <target name="-copyall" depends="-mkdirs">
@@ -459,7 +455,7 @@
         <!-- Copies all files, including .css and .js files for when you aren't minifying-->
         <echo message="Copying over all files..."/>
         <copy todir="./${dir.publish}">
-            <fileset dir="${dir.source}/" excludes="${file.default.exclude}, ${file.exclude}"></fileset>
+            <fileset dir="${dir.source}/" excludes="${file.default.exclude}"></fileset>
         </copy>
         <echo message="A copy of all non-dev files are now in: ./${dir.publish}."/>
     </target>

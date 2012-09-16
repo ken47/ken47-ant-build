@@ -403,25 +403,30 @@
             </then>
             <else>
                 <echo message="Creating directory structure... ${dir.publish}"/>
+                <echo message="*Original script modified by Ken so that existing dir.intermediate and dir.publish are overwritten."/>
                 <if>
                     <and>
                         <equals arg1="${publish.exists}" arg2="true"/>
                         <equals arg1="${intermediate.exists}" arg2="true"/>
                     </and>
                     <then>
-                        <echo message="The directories ${dir.publish} and ${dir.intermediate} already exist."/>
+                        <delete dir="${dir.intermediate}"/>
+                        <delete dir="${dir.publish}"/>
                     </then>
-                    <else>
-                        <mkdir dir="${dir.intermediate}"/>
-                        <copy todir="${dir.intermediate}" includeEmptyDirs="true">
-                            <dirset dir="${dir.source}/" excludes="${file.default.exclude}, ${file.exclude}"/>
-                        </copy>
-                        <mkdir dir="${dir.publish}"/>
-                        <copy todir="${dir.publish}" includeEmptyDirs="true">
-                            <dirset dir="${dir.source}/" excludes="${file.default.exclude}, ${file.exclude}" includes="*"/>
-                        </copy>
+                </if>
+                <!--    <else> -->
+                      <mkdir dir="${dir.intermediate}"/>
+                      <copy todir="${dir.intermediate}" includeEmptyDirs="true">
+                          <dirset dir="${dir.source}/" excludes="${file.default.exclude}, ${file.exclude}"/>
+                      </copy>
+                      <mkdir dir="${dir.publish}"/>
+                      <copy todir="${dir.publish}" includeEmptyDirs="true">
+                          <dirset dir="${dir.source}/" excludes="${file.default.exclude}, ${file.exclude}" includes="*"/>
+                      </copy>
+                <!--
                     </else>
                 </if>
+                -->
             </else>
         </if>
     </target>

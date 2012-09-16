@@ -133,13 +133,11 @@ class UglifyHelper
 
       unless trigger
         trigger = true
-        puts "IM IN"
         # can inject this into any file before app-built-xyz.js is loaded
         File.open(filepath, 'a') do |file|
           puts "file opened"
-          file.write "window.Lyfe = { env: 'production' };"
+          file.write "window.Project = { env: 'production' };"
         end
-        puts "IM OUT"
       end
 
       @black_list.push filepath.split('/').last

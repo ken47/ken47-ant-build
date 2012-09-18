@@ -324,9 +324,7 @@
                    -imagesjpg,
                    -copy,
                    -jsdoc3,
-                   -move-folders">
-      <echo message="Build script complete. Your project has now been switched to the master branch. Please confirm everything is in working order before pushing to production."/>
-    </target>
+                   -move-folders"/>
     
     <!-- Target: minify -->
     <target name="-minify.dev"
@@ -419,7 +417,6 @@
                     </and>
                     <then>
                         <delete dir="${dir.intermediate}"/>
-                        <delete file="${dir.publish}/${subdir.js}/.fuse**"/>
                         <delete dir="${dir.publish}/${subdir.js}"/>
                         <delete dir="${dir.publish}"/>
                     </then>
@@ -433,8 +430,8 @@
                 <copy todir="${dir.publish}" includeEmptyDirs="true">
                     <dirset dir="${dir.source}/" excludes="${file.default.exclude}" includes="*"/>
                 </copy>
-                <copy todir="${dir.publish}" includeEmptyDirs="true">
-                    <fileset file="${dir.source}/index.html"/>
+                <copy todir="${dir.publish}/public" includeEmptyDirs="true">
+                    <fileset file="${dir.source}/public/index.html"/>
                 </copy>
                 <!--
                     </else>
@@ -500,6 +497,7 @@
           <arg value="${dir.source}"/>
           <arg value="main-${scripts.sha}.js"/>
           <arg value="${file.root.page}"/>
+          <arg value="${subdir.templates}"/>
           <arg value="${dir.publish}"/>
           <arg value="${subdir.js}"/>
           <arg value="${scripts.ordered}"/>
@@ -574,13 +572,6 @@
         <copy todir="${dir.intermediate}" overwrite="${needhtmlrefresh}">
             <fileset dir="${dir.source}" includes="${page-files}"/>
         </copy>
-
-        <!-- HACKED BY KEN -->
-        <exec executable="${dir.build}/concat-templates-to-index.sh" failonerror="true">
-          <arg value="${dir.source}"/>
-          <arg value="${dir.intermediate}/${file.root.page}"/>
-          <arg value="${subdir.templates}"/>
-        </exec>
         
         <!-- switch from a regular jquery to minified -->
         <replaceregexp match="jquery-(\d|\d(\.\d)+)\.js" replace="jquery-\1.min.js" flags="g">
@@ -721,11 +712,6 @@
         </replaceregexp>
     </target>
     <target name="css-split" description="turns style.css into multiple files @imported together">
-        <echo message="################################################"/>
-        <echo message="################################################"/>
-        <echo message="################################################"/>
-        <echo message="################################################"/>
-        <echo message="################################################"/>
         <copy file="${dir.source}/${subdir.css}/${file.root.stylesheet}" tofile="${dir.source}/${subdir.css}/${file.root.stylesheet}.temp"/>
         <replaceregexp file="${dir.source}/${subdir.css}/${file.root.stylesheet}.temp"
                match=".*"

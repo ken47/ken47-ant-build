@@ -51,8 +51,7 @@
                     <echo message="Building a Test Environment..."/>
                     <antcall target="-basics.test"/>
                 </then>
-            </elseif>
-            <else>
+            </elseif> <else>
                 <!-- Build a production environment -->
                 <echo message="Building a Production Environment..."/>
                 <antcall target="-basics.production"/>
@@ -236,7 +235,7 @@
                    -css,
                    -copy,
                    -jsdoc3,
-                   -move-folders"/>
+                   -after-build"/>
     
     <!-- Target: text -->
     <target name="-text.dev"
@@ -312,6 +311,7 @@
                    -imagesjpg,
                    -copy,
                    -jsdoc3"/>
+    <!-- original
     <target name="-build.production"
           depends="-intro,
                    -usemin,
@@ -323,9 +323,27 @@
                    -imagespng,
                    -imagesjpg,
                    -copy,
+                   -jsdoc3"/>
+    -->
+    <!--
+         modified task list by ken 
+         images should be optimized
+         prior to running this build script
+    -->
+    <target name="-build.production"
+          depends="-intro,
+                   -before-build,
+                   -usemin,
+                   -js.all.minify,
+                   -js.main.concat,
+                   -js.scripts.concat,
+                   -css,
+                   -htmlclean,
+                   -copy,
                    -jsdoc3,
-                   -move-folders">
+                   -after-build">
       <echo message="Build script complete. Your project has now been switched to the master branch. Please confirm everything is in working order before pushing to production."/>
+      <echo message="Also note that any processes such as 'compass watch' or coffeescript auto-compilers may need to be restarted, as they will be pointing at a now non-existent / renamed directory."/>
     </target>
     
     <!-- Target: minify -->
@@ -370,12 +388,15 @@
         <echo message="Cleaning up previous build directory..."/>
         <delete dir="./${dir.intermediate}/"/>
         <delete dir="./${dir.publish}/"/>
-    </target>
-    <target name="-intro" description="(PRIVATE) Kindly inform the developer about the impending magic">
+    </target> <target name="-intro" description="(PRIVATE) Kindly inform the developer about the impending magic">
         <!-- This is a private target -->
-        
+        <input
+           message="What is the git commit message you would like to associate with this build?"
+           addproperty="git.commit.message"
+        /> 
         <echo message="====================================================================="/>
-        <echo message="Welcome to the HTML5 Boilerplate Build Script!"/>
+        <echo message="Welcome to the *heavily modified* HTML5 Boilerplate Build Script!"/>
+        <echo message="by Kenneth Hahn"/>
         <echo message=" "/>
         <echo message="We're going to get your site all ship-shape and ready for prime time."/>
         <echo message=" "/>
@@ -387,7 +408,7 @@
         <echo message=" "/>
         <echo message=" "/>
     </target>
-    <target name="-mkdirs">
+    <target name="-mkdirs" depends="-before-build">
         <condition property="publish.exists">
             <available file="${dir.publish}" type="dir"/>
         </condition>
@@ -407,8 +428,9 @@
             </then>
             <else>
               <echo message="Merging dev into master"/>
-              <exec executable="${dir.build}/merge-ours-dev-master.sh" failonerror="true">
+              <exec executable="${sh.merge_ours_dev_master}" failonerror="true">
                 <arg value="${dir.source}"/>
+                <arg value="${git.commit.message}"/>
               </exec>
                 <echo message="Creating directory structure... ${dir.publish}"/>
                 <echo message="*Original script modified by Ken so that existing dir.intermediate and dir.publish are overwritten."/>
@@ -496,7 +518,8 @@
         </apply>
         -->
         <!-- HACKED BY KEN -->
-        <exec executable="${dir.build}/uglify-and-concat-scripts.sh" failonerror="true">
+        <!-- <exec executable="${dir.build}/custom_scripts/uglify-and-concat-scripts.sh" failonerror="true"> -->
+        <exec executable="${sh.uglify_and_concat_js}" failonerror="true">
           <arg value="${dir.source}"/>
           <arg value="main-${scripts.sha}.js"/>
           <arg value="${file.root.page}"/>
@@ -555,7 +578,7 @@
     </target>
     
     <!-- HTML -->
-    <target name="-usemin" depends="-js.scripts.concat,-css" description="(PRIVATE) Replaces references to non-minified scripts">
+    <target name="-usemin" depends="-before-build,-js.scripts.concat,-css" description="(PRIVATE) Replaces references to non-minified scripts">
         <echo message="Switching to minified js files..."/>
         
         <!-- Changes to style.css or scripts.js mean that the html must be updated, and it will be.
@@ -576,7 +599,7 @@
         </copy>
 
         <!-- HACKED BY KEN -->
-        <exec executable="${dir.build}/concat-templates-to-index.sh" failonerror="true">
+        <exec executable="${sh.concat_templates_to_index}" failonerror="true">
           <arg value="${dir.source}"/>
           <arg value="${dir.intermediate}/${file.root.page}"/>
           <arg value="${subdir.templates}"/>
@@ -1043,13 +1066,18 @@
             </else>
         </if>
     </target>
-    <target name="-move-folders" >
+    <target name="-after-build" >
       <echo message="Now renaming source directory to a [source directory]-backup, renaming the optimized project directory to the source directory, and deleting the intermediate directory."/>
-      <exec executable="${dir.build}/move-folders.sh" failonerror="true">
+      <exec executable="${sh.after_build}" failonerror="true">
         <arg value="${dir.source}"/>
         <arg value="${dir.publish}"/>
         <arg value="${dir.intermediate}"/>
+        <arg value="${subdir.images}"/>
+        <arg value="${git.commit.message}"/>
       </exec>
+    </target>
+    <target name="-before-build">
+      <exec executable="${sh.before_build}" failonerror="true"/>
     </target>
     <macrodef name="lessjs">
         <attribute name="input" />

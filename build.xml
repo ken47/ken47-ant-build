@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE project>
-<project name="Boilerplate Build" default="build" basedir="../"><!-- one back since we're in build/ -->
+<project name="Boilerplate Build" default="build" basedir="../build-lyfe/"><!-- one back since we're in build/ -->
     
     <!-- Load in Ant-Contrib to give us access to some very useful tasks! -->
     <!-- the .jar file is located in the tools directory -->
     <taskdef resource="net/sf/antcontrib/antlib.xml">
         <classpath>
-            <pathelement location="${basedir}/build/tools/ant-contrib-1.0b3.jar"/>
+           <pathelement location="${basedir}/tools/ant-contrib-1.0b3.jar"/>
         </classpath>
     </taskdef>
     
@@ -14,7 +14,7 @@
     <property environment="ENV" />
     
     <!-- load property files -->
-    <property file="build/config/project.properties"/><property file="build/config/default.properties"/>
+    <property file="config/project.properties"/><property file="config/default.properties"/>
     
     <!-- merge the stylesheet properties -->
     <var name="stylesheet-files" value="${file.default.stylesheets}, ${file.stylesheets}"/>
@@ -391,7 +391,7 @@
     </target> <target name="-intro" description="(PRIVATE) Kindly inform the developer about the impending magic">
         <!-- This is a private target -->
         <input
-           message="What is the git commit message you would like to associate with this build?"
+           message="What is the git commit message you would like to associate with this build? (double quotes will be substituted with single quotes)"
            addproperty="git.commit.message"
         /> 
         <echo message="====================================================================="/>
@@ -1074,6 +1074,7 @@
         <arg value="${dir.intermediate}"/>
         <arg value="${subdir.images}"/>
         <arg value="${git.commit.message}"/>
+        <arg value="${dir.base}"/>
       </exec>
     </target>
     <target name="-before-build">
